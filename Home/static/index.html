@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Nhận diện ảnh trái phép</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+	<div class="wrapper d-flex align-items-stretch">
+		<nav id="sidebar" class="active">
+			<div class="custom-menu">
+				<button type="button" id="sidebarCollapse" class="btn btn-primary">
+					<i class="fa fa-bars"></i>
+					<span class="sr-only">Toggle Menu</span>
+				</button>
+			</div>
+			<div class="p-4">
+				<h1><a href="index.html" class="logo">LẬP TRÌNH TÍCH HỢP</a></h1>
+				<ul class="list-unstyled components mb-5">
+					<li class="active">
+						<a href="index.html"><span class="fa fa-home mr-3"></span>Module Search</a>
+					</li>
+					</li>
+					<li>
+						<a href="app.html"><span class="fa fa-user mr-3"></span>DNS, IP</a>
+					</li>
+				</ul>
+
+			</div>
+		</nav>
+
+		<!-- Page Content  -->
+		<div style="display: flex; flex-direction: row;background-color: #e8e8e8;">
+			<div id="content" style="flex: 3;margin-left: 100px;" class="p-4 p-md-5 pt-5">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col">
+							<h4 style="margin-left: 50px;">NHẬN DIỆN ẢNH TRÁI PHÉP</h4>
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col" style="color: blue;">
+							NỘI DUNG: <input placeholder="Nội dung" />
+							<button class="btn btn-success">Tìm kiếm</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col" style="color: blue;">
+							<span>ĐẦU RA:</b>
+						</div>
+					</div>
+					<br>
+					<div class="container">
+						<div class="row">
+							<img class="d-block card" src="./images/hoc-vien-ky-thuat-quan-su.png">
+						</div>
+						<div class="col">
+						</div>
+
+					</div>
+					<br />
+				</div>
+				<br />
+				<div class="container">
+
+					<div class="row">
+						<div class="col" style="color: blue;">
+							KẾT QUẢ
+						</div>
+					</div>
+					<div class="row">
+						<div class="col card">
+							<br>
+							<div> Pixel: <span style="color: green;">400 X 620</span> </div>
+							<div> Thời gian: <span style="color: green;">0,07921 seconds</span></div>
+							<div> Các đối tượng đã phát hiện: <span style="color: green;">Người, Tiết, Cầu vai học
+									viên</span></div>
+							<div style="color: red;">(Ảnh có học viên )</div>
+						</div>
+						&emsp;
+						<div class="col card">
+							<img src="./images/th.jpeg" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="flex: 3 ;">
+			<div>
+				<div>
+					<br />
+					<br />
+					<h4 style="display: flex;justify-content: center;">DANH SÁCH KẾT QUẢ ẢNH</h4>
+				</div>
+			</div>
+			<div>
+				<br />
+				<br />
+				<br />
+				<br />
+				<div style="display: flex; flex-direction: row;flex-wrap: wrap;margin-left: 100px;">
+					<br />
+					<br />
+					<br />
+					<br />
+					<div>
+						<img class="d-block card" style="margin-top: 20;" src="./images/hoc-vien-ky-thuat-quan-su.png">
+					</div>&emsp;
+					<div>
+						<img class="d-block card" style="margin-top: 20;" src="./images/hoc-vien-ky-thuat-quan-su.png">
+					</div>
+					&emsp;
+					<div>
+						<img class="d-block card" style="margin-top: 20px;" src="./images/hoc-vien-ky-thuat-quan-su.png">
+					</div>
+					&emsp;
+					<div>
+						<img class="d-block card" style="margin-top: 20px;" src="./images/hoc-vien-ky-thuat-quan-su.png">
+					</div>
+					&emsp;
+					<div>
+						<img class="d-block card" style="margin-top: 20px;" src="./images/hoc-vien-ky-thuat-quan-su.png">
+					</div>
+					&emsp;
+					<div>
+						<img class="d-block card" style="margin-top: 20px;" src="./images/hoc-vien-ky-thuat-quan-su.png">
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+		integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA=="
+		crossorigin="anonymous"></script>
+	<!-- <script type="text/javascript">
+		var socket = io("http://localhost:8000",{query:"x_access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTY4OTAyNTM1M2UwMmJhM2ExZjU3YSIsImlhdCI6MTYyMjI1MjE2ODgxMCwiZXhwIjoxNjIyNDMyMTY4ODEwfQ.-gLQwHsF2g5LJPq7ACERnZGZkvj79BMvJjs2zuxF48w"});
+		socket.on('SCAN', (data) => {
+            console.log(data);
+
+        });
+		socket.on("ALARM",(data)=>{
+			console.log(data);
+		})
+        socket.on('disconnect', () => {
+            console.log('Disconnected');
+        });
+	</script> -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	{%load static%}
+	<title>Nhận diện ảnh trái phép</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{%static 'css/style.css'%}">
+
+</head>
+<body>
+
+	<div  class="wrapper d-flex align-items-stretch">
+		<nav style="position: fixed;height:100%" id="sidebar" class="active">
+			<div class="custom-menu">
+				<button type="button" id="sidebarCollapse" class="btn btn-primary">
+					<i class="fa fa-bars"></i>
+					<span class="sr-only">Toggle Menu</span>
+				</button>
+			</div>
+			<div class="p-4">
+				<h1><a href="index.html" class="logo">LẬP TRÌNH TÍCH HỢP</a></h1>
+				<ul class="list-unstyled components mb-5">
+					<li class="active">
+						<a href=""><span class="fa fa-home mr-3"></span>Module Search</a>
+					</li>
+					<li>
+						<a href="/IP_DNS/"><span class="fa fa-user mr-3"></span>DNS, IP</a>
+					</li>
+				</ul>
+
+			</div>
+		</nav>
+
+		<!-- Page Content  -->
+		<div class="container-fluid" style="display: flex; flex-direction: row;background-color: #e8e8e8;">
+			<div id="content" style="flex: 1;margin-left: 100px;" class="p-4 p-md-5 pt-5">
+				<div >
+					<div  class="row">
+						<div class="col">
+							<h4 style="display:flex; justify-content: center;">NHẬN DIỆN ẢNH TRÁI PHÉP</h4>
+						</div>
+					</div>
+					<br />
+					<div style="display:flex; justify-content: center;" class="row">
+						<form action="/Process_Link/" method="post">
+							{%csrf_token%}
+							<div class="col" style="color: blue;">
+								NỘI DUNG: <input name="link" placeholder="Nội dung" required/>
+								&emsp;
+  <select name="choose" style="height:30px">
+    <option value="1">Link Ảnh</option>
+    <option value="2">Link WEB</option>
+    <option value="3">Search API</option>
+    <option value="4">Link Personal FB</option>
+    <option value="5">Link Group FB</option>
+  </select>
+&emsp;
+							<button type="submit" class="btn btn-success">Tìm kiếm</button>
+						</div>
+						</form>
+
+					</div>
+<br>		<div  class="row ">
+<br>			<div class="col" style="display:flex; justify-content: center;margin-right:300px" style="color: blue;">
+							<span>ĐẦU RA:</span>
+						</div>
+
+					</div>
+					{% for i in content %}
+					<div  class="row">
+						<div class="col">
+						</div>
+						<div class="col">
+						</div>
+						<div class="col">
+							<img alt="Ảnh không đúng định dạng" width="400px" height="300px" src="{%static i.input_image %}"/>
+						</div>
+						<div class="col">
+							<img alt="Ảnh không đúng định dạng" width="400px" height="300px" src="{%static i.output_image %}"/>
+						</div>
+
+						<div class="col">
+						</div>
+						<div class="col">
+						</div>
+					</div>
+					<br />
+					<div class="container">
+
+					<div class="row">
+						<div class="col" style="margin-left: 230px;color: blue;">
+							KẾT QUẢ :
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+						</div>
+						<div class="col card">
+							<div> Thời gian: <span style="color: green;">{{i.time}}</span></div>
+							<div> Các đối tượng đã phát hiện: <span style="color: green;"></span></div>
+							<div style="color: red;">{{i.result}}</div>
+						</div>
+						&emsp;
+						<div class="col">
+							<img width="150px" height="150px" src="{%static i.true %}">
+						</div>
+						<div class="col">
+						</div>
+					</div>
+					</div>
+					<br>
+					<br>
+					{% endfor %}
+		</div>
+
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+		integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA=="
+		crossorigin="anonymous"></script>
+	<!-- <script type="text/javascript">
+		var socket = io("http://localhost:8000",{query:"x_access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTY4OTAyNTM1M2UwMmJhM2ExZjU3YSIsImlhdCI6MTYyMjI1MjE2ODgxMCwiZXhwIjoxNjIyNDMyMTY4ODEwfQ.-gLQwHsF2g5LJPq7ACERnZGZkvj79BMvJjs2zuxF48w"});
+		socket.on('SCAN', (data) => {
+            console.log(data);
+
+        });
+		socket.on("ALARM",(data)=>{
+			console.log(data);
+		})
+        socket.on('disconnect', () => {
+            console.log('Disconnected');
+        });
+	</script> -->
+	<script src="{%static 'js/jquery.min.js'%}"></script>
+	<script src="{%static 'js/popper.js'%}"></script>
+	<script src="{%static 'js/bootstrap.min.js'%}"></script>
+	<script src="{%static 'js/main.js'%}"></script>
+
+</body>
+
+</html>

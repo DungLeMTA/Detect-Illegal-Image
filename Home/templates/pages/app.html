@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	{%load static%}
+	<title>Tìm kiếm DNS</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="{%static 'css/style.css'%}">
+
+	<link rel="stylesheet" href="{%static 'css/index.css'%}">
+</head>
+
+<body>
+	<div  class="wrapper d-flex align-items-stretch">
+		<nav style="position: fixed;height:100%" id="sidebar" class="active">
+			<div class="custom-menu">
+				<button type="button" id="sidebarCollapse" class="btn btn-primary">
+					<i class="fa fa-bars"></i>
+					<span class="sr-only">Menu</span>
+				</button>
+			</div>
+			<div class="p-4">
+				<h1><a href="index.html" class="logo">LẬP TRÌNH TÍCH HỢP</a></h1>
+				<ul class="list-unstyled components mb-5" style="height: 715px;">
+					<li class="active">
+						<a href="/home/"><span class="fa fa-home mr-3"></span>Module Search</a>
+					</li>
+					</li>
+					<li>
+						<a href=""><span class="fa fa-user mr-3"></span>DNS, IP</a>
+					</li>
+				</ul>
+
+			</div>
+		</nav>
+        <div class="container">
+			<div>
+					<br>
+					<div style="display:flex;   justify-content: center; color: black;">DOMAIN: <span style="color:red">{{URL}}</span></div>
+					<br>
+            </div>
+			<br>
+			<br>
+            <div>
+					<br>
+					<div style="color: black;">DNS Servers</div>
+					<br>
+            </div>
+			<div>
+				<table class="table table-striped">
+					<thead>
+					  <tr>
+						<th scope="col">DNS Server</th>
+						<th scope="col">IP</th>
+						<th scope="col">Location</th>
+					  </tr>
+					</thead>
+					<tbody>
+					{%for d in DNS%}
+					  <tr>
+						  {% for e in d %}
+						  	<th scope="col">{{e}}</th>
+						  {%endfor%}
+					  </tr>
+					{%endfor%}
+					</tbody>
+				  </table>
+			</div>
+
+			<div>
+					<br>
+					<div style="color: black;">MX Records - This is where email for domain goes</div>
+					<br>
+            </div>
+			<div>
+				<table class="table table-striped">
+					<thead>
+					  <tr>
+						<th scope="col">Email</th>
+						<th scope="col">IP</th>
+						<th scope="col">Location</th>
+					  </tr>
+					</thead>
+					<tbody>
+					{%for m in MX%}
+					  <tr>
+						  {% for e in m %}
+						  	<th scope="col">{{e}}</th>
+						  {%endfor%}
+					  </tr>
+					{%endfor%}
+					</tbody>
+				  </table>
+			</div>
+			<div>
+					<br>
+					<div style="color: black;">TXT Records - Find more hosts in Sender Policy Framework (SPF) configurations</div>
+					<br>
+            </div>
+			<div>
+				<table class="table table-striped">
+					<thead>
+					</thead>
+					<tbody>
+					{% for t in TXT %}
+					<tr>{{t}}</tr>
+					{%endfor%}
+					</tbody>
+				  </table>
+			</div>
+			<div>
+					<br>
+						<div style="color: black;">Host Records - This data may not be current as it uses a static database (updated monthly)</div>
+					<br>
+            </div>
+			<div>
+				<table class="table table-striped">
+					<thead>
+					  <tr>
+						<th scope="col">Host</th>
+						<th scope="col">IP</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  {%for h in HOST%}
+					  <tr>
+						  {% for e in h %}
+						  	<th scope="col">{{e}}</th>
+						  {%endfor%}
+					  </tr>
+					{%endfor%}
+					</tbody>
+				  </table>
+			</div>
+			<div>
+				<br>
+					Mapping the domain
+				<br>
+            </div>
+			<div>
+				<img class="img-res" width="1000px" height="500px" src="{%static MAP%}">
+            </div>
+        </div>
+	</div>
+
+
+   
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"
+		integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA=="
+		crossorigin="anonymous"></script>
+	<script type="text/javascript">
+	</script>
+	<script src="{%static 'js/jquery.min.js'%}"></script>
+	<script src="{%static 'js/popper.js'%}"></script>
+	<script src="{%static 'js/bootstrap.min.js'%}"></script>
+	<script src="{%static 'js/main.js'%}"></script>
+</body>
+
+</html>
